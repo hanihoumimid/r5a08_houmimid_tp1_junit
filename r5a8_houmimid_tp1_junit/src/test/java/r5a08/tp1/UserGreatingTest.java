@@ -6,6 +6,17 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 public class UserGreatingTest{
+
+    @Test
+    public void formatGreeting_resultat_is_ok(){
+        //Arrange
+        var user = new UserGreating();
+        //Act
+        String name = user.formatGreeting("Hani");
+        String exceptedName = "Bonjour Hani";
+        //Assert
+
+    }
     @Test
     @Order(1)
     public void formatGreeting_is_not_empty(){
