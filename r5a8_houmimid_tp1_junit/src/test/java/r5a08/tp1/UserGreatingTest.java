@@ -16,7 +16,7 @@ public class UserGreatingTest{
         String exceptedName = "Bonjour Hani";
         //Assert
 
-    }
+    }//test
     @Test
     @Order(1)
     public void formatGreeting_is_not_empty(){
