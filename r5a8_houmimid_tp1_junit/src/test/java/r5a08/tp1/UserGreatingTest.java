@@ -5,44 +5,48 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class UserGreatingTest{
 
     @Test
-    public void formatGreeting_resultat_is_ok(){
-        //Arrange
-        var user = new UserGreating();
-        //Act
-        String name = user.formatGreeting("Hani");
-        String exceptedName = "Bonjour Hani";
-        //Assert
-
-    }//test
-    @Test
     @Order(1)
-    public void formatGreeting_is_not_empty(){
-        //Arrange
-        var user = new UserGreating();
+    public void formatGreeting_resultat_is_ok(){
         //Act
+        var user = new UserGreating();
+        //Arrange
         String name = user.formatGreeting("Hani");
+        //Assert
+        String exceptedName = "Bonjour Hani";
+
+
+    }
+    @Test
+    @Order(2)
+    public void formatGreeting_is_not_empty(){
+        //Act
+        String name = "Hani";
         //Assert
         Assertions.assertFalse(name.isEmpty());
     }
     @Test
-    @Order(2)
-    public void formatGreeting_as_less_than_10_char(){
-        var user = new UserGreating();
+    @Order(3)
+    public void formatGreeting_has_less_than_10_char(){
+        String name = "Hani";
         //Act
-        String name = user.formatGreeting("Hani");
-        //Assert
         Assertions.assertTrue(name.length() < 11);
+        //Assert
     }
     @Test
-    @Order(3)
+    @Order(4)
     public void formatGreeting_does_not_contain_special_char(){
-        var user = new UserGreating();
+        Pattern s = Pattern.compile("^[a-zA-Z0-9 _-]+$");
         //Act
-        String name = user.formatGreeting("Hani");
+        String name = "Hani";
+        boolean b = Pattern.matches(String.valueOf(s),name);
+        //Arrange
+        Assertions.assertTrue(b);
         //Assert
-
     }
 }
