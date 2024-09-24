@@ -21,7 +21,7 @@ public class UserGreatingTest{
         String exceptedName = "Bonjour Hani";
 
 
-    } // les commits n'étaient pas au bon nom
+    } // les commits ne sont pas au bon nom
     @Test
     @Order(2)
     public void formatGreeting_is_not_empty(){
